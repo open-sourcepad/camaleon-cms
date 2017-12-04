@@ -56,6 +56,11 @@ class CamaleonCms::AdminController < CamaleonCms::CamaleonController
     @items = @items.paginate(:page => params[:page], :per_page => current_site.admin_per_page)
   end
 
+
+  def default_url_options(options={})
+    options.merge(protocol: 'https')
+  end
+
   private
   # initialize all vars and methods for admin panel
   def admin_init_actions
